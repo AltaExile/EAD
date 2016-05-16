@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@page import="javax.servlet.*" %> 
+<%@page import="javax.servlet.*,conn.Database" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
@@ -47,20 +47,21 @@
 margin-top:100px;
 }
 </style>
+<% Database database = new Database(); %>
 </head>
 <body>
 	<div id="header">
 		<div class="container">
 			<div id="welcomeLine" class="row">
 				<div class="span6">
-					Welcome!<strong> User</strong>
+					Welcome! <strong><%=database.getID()%></strong>
 				</div>
 				<div class="span6">
 					<div class="pull-right">
-						<span class="btn btn-mini">$155.00</span> <a
+						<span class="btn btn-mini">Price (TBD)</span> <a
 							href="product_summary.html"><span
 							class="btn btn-mini btn-primary"><i
-								class="icon-shopping-cart icon-white"></i> [ 3 ] Items in your
+								class="icon-shopping-cart icon-white"></i> (TBD) Items in your
 								cart </span> </a>
 					</div>
 				</div>
@@ -72,7 +73,7 @@ margin-top:100px;
 					class="icon-bar"></span> <span class="icon-bar"></span>
 				</a>
 				<div class="navbar-inner">
-					<a class="brand" href="index.html"><img
+					<a class="brand" href="index.jsp"><img
 						src="themes/images/logo.png" alt="Bootsshop" /></a>
 					<form class="form-inline navbar-search" method="post"
 						action="products.html">
@@ -104,15 +105,15 @@ margin-top:100px;
 									<h3>Login Block</h3>
 								</div>
 								<div class="modal-body">
-									<form class="form-horizontal loginFrm">
+									<form action="actionLogin.jsp" method="post">
 										<div class="control-group">
-											<input type="text" id="username" placeholder="Username">
+											<input type="text" name="username" placeholder="Username">
 										</div>
 										<div class="control-group">
-											<input type="password" id="password" placeholder="Password">
+											<input type="password" name="password" placeholder="Password">
 										</div>
 										<br>
-										<button type="submit" class="btn btn-success">Sign in</button>
+										<input type="submit" class="btn btn-success" value="Login">
 										<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
 									</form>
 								</div>
