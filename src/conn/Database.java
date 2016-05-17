@@ -39,7 +39,6 @@ public class Database{
 
 			while (rs.next()) {
 				if (pwd.equals(rs.getString("password"))) {
-					HttpSession session = request.getSession();
 					this.id = id;
 					this.password = rs.getString("password");
 					token = 1;
@@ -78,14 +77,14 @@ public class Database{
 		int i = 0;
 		
 		while (rs.next()){
-			gameID[i] = rs.getString("id");
-			gameTitle[i] = rs.getString("title");
-			Company[i] = rs.getString("company");
-			RDate[i] = rs.getString("release date");
-			Desc[i] = rs.getString("description");
-			Price[i] = rs.getString("price");
-			imgL[i] = rs.getString("img");
-			own[i] = rs.getString("owned");
+			this.gameID[i] = rs.getString("id");
+			this.gameTitle[i] = rs.getString("title");
+			this.Company[i] = rs.getString("company");
+			this.RDate[i] = rs.getString("release date");
+			this.Desc[i] = rs.getString("description");
+			this.Price[i] = rs.getString("price");
+			this.imgL[i] = rs.getString("img");
+			this.own[i] = rs.getString("owned");
 			i++;
 		}
 	}
@@ -114,9 +113,53 @@ public class Database{
 		}
 	}
 	
+	//function to insert game
+	public String insertGame(String id, String title, String company, String date, String desc, String price, String img, String own) throws Exception{
+		
+		//Connecting to server
+		Connection conn = connectMe();
+		//Assigning all variables to one string array
+		String[] val = {id,title,company,date,desc,price,img,own};
+		
+		String sql = "INSERT INTO login VALUES (?,?,?,?,?,?,?,?)";//Preparing sql statement
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		//Setting ? values
+		for (int i = 0; i < val.length; i++) {
+			pstmt.setString(i, val[i]);
+		}
+		//Updating table
+		pstmt.executeUpdate(sql);
+		
+		return "Game inserted.";
+	}
+	
+	//Function for game deletion
+	public String deleteGame (String id) throws Exception{
+		
+		//Preparing Connection to database
+		Connection conn = connectMe();
+		//Preparing sql string
+		String sql = "DELETE FROM login WHERE id = ?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		//Setting ? variable
+		pstmt.setString(1, id);
+		
+		//Executing game deletion
+		pstmt.executeUpdate(sql);
+		
+		return "Game deleted.";
+	}
+	
+	//Function for game search
+	public String searchGame(String search) throws Exception{
+		
+		//Preparig connection to databse
+		Connection conn = connectMe();
+		//Preparing sql string
+		String sql = "SELECT * FROM login WHERE "
+	}
 	
 	//Connection to images
-	
 	public String getImages(String search){//Searches for an image in the database, returns the link to the image
 		String link = "a";
 		return link;

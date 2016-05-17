@@ -54,7 +54,7 @@ margin-top:100px;
 		<div class="container">
 			<div id="welcomeLine" class="row">
 				<div class="span6">
-					Welcome! <strong><%=database.getID()%></strong>
+					Welcome! <strong><%= database.getID()%></strong>
 				</div>
 				<div class="span6">
 					<div class="pull-right">
