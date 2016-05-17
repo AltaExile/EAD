@@ -52,6 +52,9 @@ public class Database{
 	}
 	//End of login method
 	
+	public Database(String id, String password){
+		login(id,password);
+	}
 	
 	public String getID(){//Display username on every page
 		if(id != null){
@@ -73,7 +76,7 @@ public class Database{
 		
 		String sql = "SELECT * FROM game";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-		ResultSet rs = pstmt.executeQuery(sql);
+		ResultSet rs = pstmt.executeQuery();
 		int i = 0;
 		
 		while (rs.next()){
@@ -139,7 +142,7 @@ public class Database{
 		//Preparing Connection to database
 		Connection conn = connectMe();
 		//Preparing sql string
-		String sql = "DELETE FROM login WHERE id = ?";
+		String sql = "DELETE FROM game WHERE id = ?";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		//Setting ? variable
 		pstmt.setString(1, id);
@@ -151,12 +154,20 @@ public class Database{
 	}
 	
 	//Function for game search
-	public String searchGame(String search) throws Exception{
+	public ResultSet searchGame(String search) throws Exception{ //Returns resultset so the JSP page can display the results
 		
-		//Preparig connection to databse
+		//Preparing connection to databse
 		Connection conn = connectMe();
 		//Preparing sql string
-		String sql = "SELECT * FROM login WHERE "
+		String sql = "SELECT * FROM game WHERE CONCAT_WS(\"OR\",id,title,company,rdate,description,price) like ?"; //Searches through all relevant columns
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, "%"+search+"%"); //Setting search substring
+		
+		//Executing game select
+		ResultSet rs = pstmt.executeQuery();
+		
+		return rs;
+		
 	}
 	
 	//Connection to images

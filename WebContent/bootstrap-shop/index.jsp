@@ -47,7 +47,12 @@
 margin-top:100px;
 }
 </style>
-<% Database database = new Database(); %>
+<script>
+<% 
+String id = request.getParameter("username");
+String password = request.getParameter("password");
+Database database = new Database(id,password); %>
+</script>
 </head>
 <body>
 	<div id="header">
