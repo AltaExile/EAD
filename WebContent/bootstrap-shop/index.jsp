@@ -49,85 +49,18 @@ margin-top:100px;
 </style>
 <script>
 <% 
-String id = request.getParameter("username");
-String password = request.getParameter("password");
-Database database = new Database(id,password); %>
+Database database = (Database) session.getAttribute("user");
+if (database == null){
+	String username = "You are not logged in.";
+	String password = "Nothing.";
+	
+	database = new Database(username,password);
+}
+%>
 </script>
 </head>
 <body>
-	<div id="header">
-		<div class="container">
-			<div id="welcomeLine" class="row">
-				<div class="span6">
-					Welcome! <strong><%= database.getID()%></strong>
-				</div>
-				<div class="span6">
-					<div class="pull-right">
-						<span class="btn btn-mini">Price (TBD)</span> <a
-							href="product_summary.html"><span
-							class="btn btn-mini btn-primary"><i
-								class="icon-shopping-cart icon-white"></i> (TBD) Items in your
-								cart </span> </a>
-					</div>
-				</div>
-			</div>
-			<!-- Navbar ================================================== -->
-			<div id="logoArea" class="navbar">
-				<a id="smallScreen" data-target="#topMenu" data-toggle="collapse"
-					class="btn btn-navbar"> <span class="icon-bar"></span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span>
-				</a>
-				<div class="navbar-inner">
-					<a class="brand" href="index.jsp"><img
-						src="themes/images/logo.png" alt="Bootsshop" /></a>
-					<form class="form-inline navbar-search" method="post"
-						action="products.html">
-						<input id="srchFld" name="search" class="srchTxt" type="text" /> <select
-							class="srchTxt">
-							<option>All</option>
-							<option value = "Action">Action</option>
-							<option value = "adventure">Adventure</option>
-							<option value = "rpg">RPG</option>
-							<option value = "simulation">Simulation</option>
-							<option value = "strategy">Strategy</option>
-							<option value = "sports">Sports</option>
-							<option value = "etc">Others</option>
-						</select>
-						<button type="submit" id="submitButton" class="btn btn-primary">Search!</button>
-					</form>
-					<ul id="topMenu" class="nav pull-right">
-						<!-- <li class=""><a href="special_offer.html">Specials Offer</a></li>
-						<li class=""><a href="normal.html">Delivery</a></li>
-						<li class=""><a href="contact.html">Contact</a></li> -->
-						<li class=""><a href="#login" role="button"
-							data-toggle="modal" style="padding-right: 0"><span
-								class="btn btn-large btn-success">Login</span></a>
-							<div id="login" class="modal hide fade in" tabindex="-1"
-								role="dialog" aria-labelledby="login" aria-hidden="false">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal"
-										aria-hidden="true">—</button>
-									<h3>Login Block</h3>
-								</div>
-								<div class="modal-body">
-									<form action="actionLogin.jsp" method="post">
-										<div class="control-group">
-											<input type="text" name="username" placeholder="Username">
-										</div>
-										<div class="control-group">
-											<input type="password" name="password" placeholder="Password">
-										</div>
-										<br>
-										<input type="submit" class="btn btn-success" value="Login">
-										<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-									</form>
-								</div>
-							</div></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
+	<%@include file = "header.jsp" %>
 	<!-- Header End====================================================================== -->
 	
 	<div id="carouselBlk">
@@ -135,37 +68,37 @@ Database database = new Database(id,password); %>
 			<div class="carousel-inner">
 				<div class="item active">
 					<div class="container">
-						<a href="register.html"><img style="width: 100%"
+						<a href="register.jsp"><img style="width: 100%"
 							src="themes/images/carousel/1.png" alt="special offers" /></a>
 					</div>
 				</div>
 				<div class="item">
 					<div class="container">
-						<a href="register.html"><img style="width: 100%"
+						<a href="register.jsp"><img style="width: 100%"
 							src="themes/images/carousel/2.png" alt="" /></a>
 					</div>
 				</div>
 				<div class="item">
 					<div class="container">
-						<a href="register.html"><img
+						<a href="register.jsp"><img
 							src="themes/images/carousel/3.png" alt="" /></a>
 					</div>
 				</div>
 				<div class="item">
 					<div class="container">
-						<a href="register.html"><img
+						<a href="register.jsp"><img
 							src="themes/images/carousel/4.png" alt="" /></a>
 					</div>
 				</div>
 				<div class="item">
 					<div class="container">
-						<a href="register.html"><img
+						<a href="register.jsp"><img
 							src="themes/images/carousel/5.png" alt="" /></a>
 					</div>
 				</div>
 				<div class="item">
 					<div class="container">
-						<a href="register.html"><img
+						<a href="register.jsp"><img
 							src="themes/images/carousel/6.png" alt="" /></a>
 					</div>
 				</div>
@@ -179,39 +112,7 @@ Database database = new Database(id,password); %>
 		<div class="container">
 			<div class="row">
 				<!-- Sidebar ================================================== -->
-				<div id="sidebar" class="span3">
-					<div class="well well-small">
-						<a id="myCart" href="product_summary.html"><img
-							src="themes/images/ico-cart.png" alt="cart">3 Items in your
-							cart <span class="badge badge-warning pull-right">$155.00</span></a>
-					</div>
-					<ul id="sideManu" class="nav nav-tabs nav-stacked">
-						<li class="subMenu open"><a>Genre</a>
-							<ul>
-								<li><a class="active" href="products.html"><i
-										class="icon-chevron-right"></i>Action </a></li>
-								<li><a href="products.html"><i
-										class="icon-chevron-right"></i>Adventure</a></li>
-								<li><a href="products.html"><i
-										class="icon-chevron-right"></i>Role-playing</a></li>
-								<li><a href="products.html"><i
-										class="icon-chevron-right"></i>Simulations</a></li>
-								<li><a href="products.html"><i
-										class="icon-chevron-right"></i>Strategy</a></li>
-								<li><a href="products.html"><i
-										class="icon-chevron-right"></i>Sports</a></li>
-								<li><a href="products.html"><i
-										class="icon-chevron-right"></i>Uncategorized</a></li>
-							</ul></li>
-					<br/> 
-					<div class="thumbnail" >
-						<img src="themes/images/payment_methods.png"
-							title="Bootshop Payment Methods" alt="Payments Methods">
-						<div class="caption">
-							<h5>Payment Methods</h5>
-						</div>
-					</div>
-				</div>
+				<%@include file="sidebar.jsp" %>
 				<!-- Sidebar end=============================================== -->
 				<div class="span9">
 					<div class="well well-small">
@@ -226,12 +127,12 @@ Database database = new Database(id,password); %>
 										<ul class="thumbnails">
 											<li class="span3">
 												<div class="thumbnail">
-													<i class="tag"></i> <a href="product_details.html"><img
+													<i class="tag"></i> <a href="product_details.jsp"><img
 														src="themes/images/products/b1.jpg" alt=""></a>
 													<div class="caption">
 														<h5>Product name</h5>
 														<h4>
-															<a class="btn" href="product_details.html">VIEW</a> <span
+															<a class="btn" href="product_details.jsp">VIEW</a> <span
 																class="pull-right">$222.00</span>
 														</h4>
 													</div>
@@ -239,12 +140,12 @@ Database database = new Database(id,password); %>
 											</li>
 											<li class="span3">
 												<div class="thumbnail">
-													<i class="tag"></i> <a href="product_details.html"><img
+													<i class="tag"></i> <a href="product_details.jsp"><img
 														src="themes/images/products/b2.jpg" alt=""></a>
 													<div class="caption">
 														<h5>Product name</h5>
 														<h4>
-															<a class="btn" href="product_details.html">VIEW</a> <span
+															<a class="btn" href="product_details.jsp">VIEW</a> <span
 																class="pull-right">$222.00</span>
 														</h4>
 													</div>
@@ -252,12 +153,12 @@ Database database = new Database(id,password); %>
 											</li>
 											<li class="span3">
 												<div class="thumbnail">
-													<i class="tag"></i> <a href="product_details.html"><img
+													<i class="tag"></i> <a href="product_details.jsp"><img
 														src="themes/images/products/b3.jpg" alt=""></a>
 													<div class="caption">
 														<h5>Product name</h5>
 														<h4>
-															<a class="btn" href="product_details.html">VIEW</a> <span
+															<a class="btn" href="product_details.jsp">VIEW</a> <span
 																class="pull-right">$222.00</span>
 														</h4>
 													</div>
@@ -265,12 +166,12 @@ Database database = new Database(id,password); %>
 											</li>
 											<li class="span3">
 												<div class="thumbnail">
-													<i class="tag"></i> <a href="product_details.html"><img
+													<i class="tag"></i> <a href="product_details.jsp"><img
 														src="themes/images/products/b4.jpg" alt=""></a>
 													<div class="caption">
 														<h5>Product name</h5>
 														<h4>
-															<a class="btn" href="product_details.html">VIEW</a> <span
+															<a class="btn" href="product_details.jsp">VIEW</a> <span
 																class="pull-right">$222.00</span>
 														</h4>
 													</div>
@@ -282,12 +183,12 @@ Database database = new Database(id,password); %>
 										<ul class="thumbnails">
 											<li class="span3">
 												<div class="thumbnail">
-													<i class="tag"></i> <a href="product_details.html"><img
+													<i class="tag"></i> <a href="product_details.jsp"><img
 														src="themes/images/products/5.jpg" alt=""></a>
 													<div class="caption">
 														<h5>Product name</h5>
 														<h4>
-															<a class="btn" href="product_details.html">VIEW</a> <span
+															<a class="btn" href="product_details.jsp">VIEW</a> <span
 																class="pull-right">$222.00</span>
 														</h4>
 													</div>
@@ -295,12 +196,12 @@ Database database = new Database(id,password); %>
 											</li>
 											<li class="span3">
 												<div class="thumbnail">
-													<i class="tag"></i> <a href="product_details.html"><img
+													<i class="tag"></i> <a href="product_details.jsp"><img
 														src="themes/images/products/6.jpg" alt=""></a>
 													<div class="caption">
 														<h5>Product name</h5>
 														<h4>
-															<a class="btn" href="product_details.html">VIEW</a> <span
+															<a class="btn" href="product_details.jsp">VIEW</a> <span
 																class="pull-right">$222.00</span>
 														</h4>
 													</div>
@@ -308,12 +209,12 @@ Database database = new Database(id,password); %>
 											</li>
 											<li class="span3">
 												<div class="thumbnail">
-													<a href="product_details.html"><img
+													<a href="product_details.jsp"><img
 														src="themes/images/products/7.jpg" alt=""></a>
 													<div class="caption">
 														<h5>Product name</h5>
 														<h4>
-															<a class="btn" href="product_details.html">VIEW</a> <span
+															<a class="btn" href="product_details.jsp">VIEW</a> <span
 																class="pull-right">$222.00</span>
 														</h4>
 													</div>
@@ -321,12 +222,12 @@ Database database = new Database(id,password); %>
 											</li>
 											<li class="span3">
 												<div class="thumbnail">
-													<a href="product_details.html"><img
+													<a href="product_details.jsp"><img
 														src="themes/images/products/8.jpg" alt=""></a>
 													<div class="caption">
 														<h5>Product name</h5>
 														<h4>
-															<a class="btn" href="product_details.html">VIEW</a> <span
+															<a class="btn" href="product_details.jsp">VIEW</a> <span
 																class="pull-right">$222.00</span>
 														</h4>
 													</div>
@@ -338,12 +239,12 @@ Database database = new Database(id,password); %>
 										<ul class="thumbnails">
 											<li class="span3">
 												<div class="thumbnail">
-													<a href="product_details.html"><img
+													<a href="product_details.jsp"><img
 														src="themes/images/products/9.jpg" alt=""></a>
 													<div class="caption">
 														<h5>Product name</h5>
 														<h4>
-															<a class="btn" href="product_details.html">VIEW</a> <span
+															<a class="btn" href="product_details.jsp">VIEW</a> <span
 																class="pull-right">$222.00</span>
 														</h4>
 													</div>
@@ -351,12 +252,12 @@ Database database = new Database(id,password); %>
 											</li>
 											<li class="span3">
 												<div class="thumbnail">
-													<a href="product_details.html"><img
+													<a href="product_details.jsp"><img
 														src="themes/images/products/10.jpg" alt=""></a>
 													<div class="caption">
 														<h5>Product name</h5>
 														<h4>
-															<a class="btn" href="product_details.html">VIEW</a> <span
+															<a class="btn" href="product_details.jsp">VIEW</a> <span
 																class="pull-right">$222.00</span>
 														</h4>
 													</div>
@@ -364,12 +265,12 @@ Database database = new Database(id,password); %>
 											</li>
 											<li class="span3">
 												<div class="thumbnail">
-													<a href="product_details.html"><img
+													<a href="product_details.jsp"><img
 														src="themes/images/products/11.jpg" alt=""></a>
 													<div class="caption">
 														<h5>Product name</h5>
 														<h4>
-															<a class="btn" href="product_details.html">VIEW</a> <span
+															<a class="btn" href="product_details.jsp">VIEW</a> <span
 																class="pull-right">$222.00</span>
 														</h4>
 													</div>
@@ -377,12 +278,12 @@ Database database = new Database(id,password); %>
 											</li>
 											<li class="span3">
 												<div class="thumbnail">
-													<a href="product_details.html"><img
+													<a href="product_details.jsp"><img
 														src="themes/images/products/1.jpg" alt=""></a>
 													<div class="caption">
 														<h5>Product name</h5>
 														<h4>
-															<a class="btn" href="product_details.html">VIEW</a> <span
+															<a class="btn" href="product_details.jsp">VIEW</a> <span
 																class="pull-right">$222.00</span>
 														</h4>
 													</div>
@@ -394,12 +295,12 @@ Database database = new Database(id,password); %>
 										<ul class="thumbnails">
 											<li class="span3">
 												<div class="thumbnail">
-													<a href="product_details.html"><img
+													<a href="product_details.jsp"><img
 														src="themes/images/products/2.jpg" alt=""></a>
 													<div class="caption">
 														<h5>Product name</h5>
 														<h4>
-															<a class="btn" href="product_details.html">VIEW</a> <span
+															<a class="btn" href="product_details.jsp">VIEW</a> <span
 																class="pull-right">$222.00</span>
 														</h4>
 													</div>
@@ -407,12 +308,12 @@ Database database = new Database(id,password); %>
 											</li>
 											<li class="span3">
 												<div class="thumbnail">
-													<a href="product_details.html"><img
+													<a href="product_details.jsp"><img
 														src="themes/images/products/3.jpg" alt=""></a>
 													<div class="caption">
 														<h5>Product name</h5>
 														<h4>
-															<a class="btn" href="product_details.html">VIEW</a> <span
+															<a class="btn" href="product_details.jsp">VIEW</a> <span
 																class="pull-right">$222.00</span>
 														</h4>
 													</div>
@@ -420,12 +321,12 @@ Database database = new Database(id,password); %>
 											</li>
 											<li class="span3">
 												<div class="thumbnail">
-													<a href="product_details.html"><img
+													<a href="product_details.jsp"><img
 														src="themes/images/products/4.jpg" alt=""></a>
 													<div class="caption">
 														<h5>Product name</h5>
 														<h4>
-															<a class="btn" href="product_details.html">VIEW</a> <span
+															<a class="btn" href="product_details.jsp">VIEW</a> <span
 																class="pull-right">$222.00</span>
 														</h4>
 													</div>
@@ -433,12 +334,12 @@ Database database = new Database(id,password); %>
 											</li>
 											<li class="span3">
 												<div class="thumbnail">
-													<a href="product_details.html"><img
+													<a href="product_details.jsp"><img
 														src="themes/images/products/5.jpg" alt=""></a>
 													<div class="caption">
 														<h5>Product name</h5>
 														<h4>
-															<a class="btn" href="product_details.html">VIEW</a> <span
+															<a class="btn" href="product_details.jsp">VIEW</a> <span
 																class="pull-right">$222.00</span>
 														</h4>
 													</div>
@@ -457,14 +358,14 @@ Database database = new Database(id,password); %>
 					<ul class="thumbnails">
 						<li class="span3">
 							<div class="thumbnail">
-								<a href="product_details.html"><img
+								<a href="product_details.jsp"><img
 									src="themes/images/products/6.jpg" alt="" /></a>
 								<div class="caption">
 									<h5>Product name</h5>
 									<p>Lorem Ipsum is simply dummy text.</p>
 
 									<h4 style="text-align: center">
-										<a class="btn" href="product_details.html"> <i
+										<a class="btn" href="product_details.jsp"> <i
 											class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to
 											<i class="icon-shopping-cart"></i>
 										</a> <a class="btn btn-primary" href="#">$222.00</a>
@@ -474,13 +375,13 @@ Database database = new Database(id,password); %>
 						</li>
 						<li class="span3">
 							<div class="thumbnail">
-								<a href="product_details.html"><img
+								<a href="product_details.jsp"><img
 									src="themes/images/products/7.jpg" alt="" /></a>
 								<div class="caption">
 									<h5>Product name</h5>
 									<p>Lorem Ipsum is simply dummy text.</p>
 									<h4 style="text-align: center">
-										<a class="btn" href="product_details.html"> <i
+										<a class="btn" href="product_details.jsp"> <i
 											class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to
 											<i class="icon-shopping-cart"></i>
 										</a> <a class="btn btn-primary" href="#">$222.00</a>
@@ -490,13 +391,13 @@ Database database = new Database(id,password); %>
 						</li>
 						<li class="span3">
 							<div class="thumbnail">
-								<a href="product_details.html"><img
+								<a href="product_details.jsp"><img
 									src="themes/images/products/8.jpg" alt="" /></a>
 								<div class="caption">
 									<h5>Product name</h5>
 									<p>Lorem Ipsum is simply dummy text.</p>
 									<h4 style="text-align: center">
-										<a class="btn" href="product_details.html"> <i
+										<a class="btn" href="product_details.jsp"> <i
 											class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to
 											<i class="icon-shopping-cart"></i>
 										</a> <a class="btn btn-primary" href="#">$222.00</a>
@@ -506,13 +407,13 @@ Database database = new Database(id,password); %>
 						</li>
 						<li class="span3">
 							<div class="thumbnail">
-								<a href="product_details.html"><img
+								<a href="product_details.jsp"><img
 									src="themes/images/products/9.jpg" alt="" /></a>
 								<div class="caption">
 									<h5>Product name</h5>
 									<p>Lorem Ipsum is simply dummy text.</p>
 									<h4 style="text-align: center">
-										<a class="btn" href="product_details.html"> <i
+										<a class="btn" href="product_details.jsp"> <i
 											class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to
 											<i class="icon-shopping-cart"></i>
 										</a> <a class="btn btn-primary" href="#">$222.00</a>
@@ -522,13 +423,13 @@ Database database = new Database(id,password); %>
 						</li>
 						<li class="span3">
 							<div class="thumbnail">
-								<a href="product_details.html"><img
+								<a href="product_details.jsp"><img
 									src="themes/images/products/10.jpg" alt="" /></a>
 								<div class="caption">
 									<h5>Product name</h5>
 									<p>Lorem Ipsum is simply dummy text.</p>
 									<h4 style="text-align: center">
-										<a class="btn" href="product_details.html"> <i
+										<a class="btn" href="product_details.jsp"> <i
 											class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to
 											<i class="icon-shopping-cart"></i>
 										</a> <a class="btn btn-primary" href="#">$222.00</a>
@@ -538,13 +439,13 @@ Database database = new Database(id,password); %>
 						</li>
 						<li class="span3">
 							<div class="thumbnail">
-								<a href="product_details.html"><img
+								<a href="product_details.jsp"><img
 									src="themes/images/products/11.jpg" alt="" /></a>
 								<div class="caption">
 									<h5>Product name</h5>
 									<p>Lorem Ipsum is simply dummy text.</p>
 									<h4 style="text-align: center">
-										<a class="btn" href="product_details.html"> <i
+										<a class="btn" href="product_details.jsp"> <i
 											class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to
 											<i class="icon-shopping-cart"></i>
 										</a> <a class="btn btn-primary" href="#">$222.00</a>
@@ -558,43 +459,10 @@ Database database = new Database(id,password); %>
 			</div>
 		</div>
 	</div>
+	
 	<!-- Footer ================================================================== -->
-	<div id="footerSection">
-		<div class="container">
-			<div class="row">
-				<div class="span3">
-					<h5>ACCOUNT</h5>
-					<a href="login.html">YOUR ACCOUNT</a> <a href="login.html">PERSONAL
-						INFORMATION</a> <a href="login.html">ADDRESSES</a> <a
-						href="login.html">DISCOUNT</a> <a href="login.html">ORDER
-						HISTORY</a>
-				</div>
-				<div class="span3">
-					<h5>INFORMATION</h5>
-					<a href="contact.html">CONTACT</a> <a href="register.html">REGISTRATION</a>
-					<a href="legal_notice.html">LEGAL NOTICE</a> <a href="tac.html">TERMS
-						AND CONDITIONS</a> <a href="faq.html">FAQ</a>
-				</div>
-				<div class="span3">
-					<h5>OUR OFFERS</h5>
-					<a href="#">NEW PRODUCTS</a> <a href="#">TOP SELLERS</a> <a
-						href="special_offer.html">SPECIAL OFFERS</a> <a href="#">MANUFACTURERS</a>
-					<a href="#">SUPPLIERS</a>
-				</div>
-				<div id="socialMedia" class="span3 pull-right">
-					<h5>SOCIAL MEDIA</h5>
-					<a href="#"><img width="60" height="60"
-						src="themes/images/facebook.png" title="facebook" alt="facebook" /></a>
-					<a href="#"><img width="60" height="60"
-						src="themes/images/twitter.png" title="twitter" alt="twitter" /></a>
-					<a href="#"><img width="60" height="60"
-						src="themes/images/youtube.png" title="youtube" alt="youtube" /></a>
-				</div>
-			</div>
-			<p class="pull-right">&copy; Bootshop</p>
-		</div>
-		<!-- Container End -->
-	</div>
+	<%@include file="footer.jsp" %>
+	<!-- Footer End ================================================================== -->
 	<!-- Placed at the end of the document so the pages load faster ============================================= -->
 	<script src="themes/js/jquery.js" type="text/javascript"></script>
 	<script src="themes/js/bootstrap.min.js" type="text/javascript"></script>
