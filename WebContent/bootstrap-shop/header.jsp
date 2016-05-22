@@ -34,7 +34,7 @@
 						src="themes/images/logo.png" alt="Bootsshop" /></a>
 					<form class="form-inline navbar-search" method="get"
 						action="products.jsp">
-						<input id="srchFld" name="search" class="srchTxt" type="text" /> 
+						<input name="search" class="srchTxt" type="text" placeholder="Search here!"/> 
 						<select name="genre" class="srchTxt">
 							<option value ="0">All</option>
 							<option value = "1">Action</option>
@@ -55,11 +55,16 @@
 						<button type="submit" id="submitButton" class="btn btn-primary">Search!</button>
 					</form>
 					
-						<div>
-						<a href="InsertGame.jsp"><span class="btn" style="margin-left:20px;margin-top:20px;margin-bottom:0px;
-						<% if (!database.getID().equals("admin")){out.println(";display: none");}%>">Insert game</span></a>
+						<div style=>
+						<a href="InsertGame.jsp"><span class="btn" style="margin-left:0px;margin-top:20px;margin-bottom:0px;margin-right:0px
+						<% if (!database.getID().equals("admin")){out.println(";display: none");}%>">Insert game</span></a> <br>
+						<a href="genres.jsp"><span class="btn" style="margin-left:0px;margin-top:20px;margin-bottom:0px;margin-right:0px
+						<% if (!database.getID().equals("admin")){out.println(";display: none");}%>">Genres</span></a>
+						<a href="imageUpload.jsp"><span class="btn" style="margin-left:0px;margin-top:20px;margin-bottom:0px;margin-right:0px
+						<% if (!database.getID().equals("admin")){out.println(";display: none");}%>">Images?</span></a>
+						
 										
-					<ul id="topMenu" class="nav pull-right" style="padding-top:15px;">
+					<ul id="topMenu" class="nav pull-right" style="position:relative;float:top;">
 						<li class=""><a href="#login" role="button"
 							data-toggle="modal" style="padding-top:0px;<% if (!database.getID().equals("You are not logged in.")){out.println(";display: none");}%>"><span
 								class="btn btn-large btn-success">Login</span></a>

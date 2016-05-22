@@ -97,7 +97,7 @@ if(!database.getID().equals("admin")){
               <input type="text" class="input-medium" id="input12" name="company">
             </div>
 			
-		    <label class="control-label" for="fileInput">Game Cover Upload</label>
+		    <label class="control-label" for="fileInput">Preview your image on our background!</label>
             <div class="controls">
               <input class="input-file" id="fileInput" type="file" onchange="readURL(this)">
             </div>

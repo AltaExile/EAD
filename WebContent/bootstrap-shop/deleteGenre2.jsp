@@ -7,13 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-
 <%
-String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
-String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
-
-out.println(host + port);
+int genreID = Integer.parseInt(request.getParameter("genre"));
 %>
+
+<form action="actionDeleteGenre.jsp">
+<h2>Are you sure?</h2>
+<input type="hidden" name="genreID" value=<%=genreID %>>
+<button type="submit">Yes</button>
+<a href="deleteGenre.jsp"><button>No</button></a>
+</form>
+
 </body>
 </html>

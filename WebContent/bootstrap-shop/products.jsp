@@ -64,7 +64,7 @@ String gen = request.getParameter("genre");
 String own = request.getParameter("own");
 String search = request.getParameter("search");
 
-if(own == null || own.isEmpty()){
+if(gen == null || gen.isEmpty()){
 	gen = "0";
 }
 

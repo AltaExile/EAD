@@ -165,18 +165,18 @@ public class Database {
 	}
 	
 	// Function for game deletion
-	public int deleteGame(String pID) throws Exception {
+	public int deleteGame(int pID) throws Exception {
 
 		// Preparing Connection to database
 		Connection conn = connectMe();
 		// Preparing sql string
-		String sql = "DELETE FROM game WHERE id = ?";
+		String sql = "DELETE FROM game WHERE game_id = ?";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		// Setting ? variable
-		pstmt.setString(1, pID);
+		pstmt.setInt(1, pID);
 
 		// Executing game deletion
-		int success = pstmt.executeUpdate(sql);
+		int success = pstmt.executeUpdate();
 
 		return success;
 	}
@@ -259,6 +259,29 @@ public class Database {
 			String genre = rs.getString("genre");
 		}
 		return genre;
+	}
+	
+	//INSERTING A NEW GENRE INTO THE GENRE TABLE
+	public int insertGenre(String genre)throws Exception{
+		Connection conn = connectMe();
+		String sql = "INSERT INTO genre (genre_name) values (?)";
+		
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, genre);
+		int success = pstmt.executeUpdate();
+		
+		return success;
+	}
+	
+	//DELETING A CURRENT GENRE
+	public int deleteGenre(int genreID) throws Exception{
+		Connection conn = connectMe();
+		String sql = "DELETE FROM genre WHERE genre_id = ?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, genreID);
+		
+		int success = pstmt.executeUpdate();
+		return success;
 	}
 
 	// <-----------SEARCH BAR =========================================>

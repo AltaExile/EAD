@@ -68,6 +68,8 @@ if(request.getParameter("pID") != null){
 database.pidSearch(pID);
 database.setGenre(pID);
 %>
+
+
 </script>
 </head>
 <body>
@@ -96,23 +98,25 @@ database.setGenre(pID);
 				<h3><%=database.getpTitle()%> </h3>
 				<hr class="soft"/>
 
-				  <div class="control-group">
+				  <div class="control-group" style="float:right;">
 					<label class="control-label"><span>$<%=database.getpPrice() %></span></label>
 					<%if ((database.getID()).equals("admin")){
 					
 					%>
-					<form action="UpdateGame.jsp" method="post">
-					<div class="controls">
+					<form action="deleteGame.jsp" method="post">
 					<input type="hidden" name="pID" value="<%=pID %>">
-					<button type="submit" class="btn btn-large btn-primary pull-right"> Edit this item!</button>
-					</div>
+					<button type="submit" class="btn btn-large btn-primary "> Delete this item!</button>
+					</form>
+					<form action="UpdateGame.jsp" method="post">
+					<input type="hidden" name="pID" value="<%=pID %>">
+					<button type="submit" class="btn btn-large btn-primary "> Edit this item!</button>
 					</form>
 					<%}%>
 				  </div>
 				<p>
 				<%=database.getpDesc() %>
 				</p>
-				<a class="btn btn-small pull-right" href="#detail">More Details</a>
+				<a class="btn btn-small " href="#detail">More Details</a>
 				<br class="clr"/>
 			<a href="#" name="detail"></a>
 			<hr class="soft"/>

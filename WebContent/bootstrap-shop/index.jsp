@@ -68,40 +68,35 @@ if (database == null){
 			<div class="carousel-inner">
 				<div class="item active">
 					<div class="container">
-						<a href="register.jsp"><img style="width: 100%"
-							src="themes/images/carousel/1.png" alt="special offers" /></a>
+						<a href="products.jsp"><img style="max-width:400px;"
+							src="images/1.png" alt="special offers" /></a>
 					</div>
 				</div>
 				<div class="item">
 					<div class="container">
-						<a href="register.jsp"><img style="width: 100%"
-							src="themes/images/carousel/2.png" alt="" /></a>
+						<a href="products.jsp"><img style="max-width:400px;"
+							src="images/2.png" alt="" /></a>
 					</div>
 				</div>
 				<div class="item">
 					<div class="container">
-						<a href="register.jsp"><img
-							src="themes/images/carousel/3.png" alt="" /></a>
+						<a href="products.jsp"><img style="max-width:400px;"
+							src="images/3.png" alt="" /></a>
 					</div>
 				</div>
 				<div class="item">
 					<div class="container">
-						<a href="register.jsp"><img
-							src="themes/images/carousel/4.png" alt="" /></a>
+						<a href="products.jsp"><img style="max-width:400px;"
+							src="images/4.png" alt="" /></a>
 					</div>
 				</div>
 				<div class="item">
 					<div class="container">
-						<a href="register.jsp"><img
-							src="themes/images/carousel/5.png" alt="" /></a>
+						<a href="products.jsp"><img style="max-width:400px;"
+							src="images/5.png" alt="" /></a>
 					</div>
 				</div>
-				<div class="item">
-					<div class="container">
-						<a href="register.jsp"><img
-							src="themes/images/carousel/6.png" alt="" /></a>
-					</div>
-				</div>
+				
 			</div>
 			<a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
 			<a class="right carousel-control" href="#myCarousel"
@@ -115,7 +110,7 @@ if (database == null){
 				<%@include file="sidebar.jsp" %>
 				<!-- Sidebar end=============================================== -->
 				<div class="span9">
-					<div class="well well-small">
+					<!-- <div class="well well-small">
 						<h4>
 							Featured Products <small class="pull-right">200+ featured
 								products</small>
@@ -353,8 +348,8 @@ if (database == null){
 									href="#featured" data-slide="next">&rsaquo;</a>
 							</div>
 						</div>
-					</div>
-					<h4>Latest Products</h4>
+					</div> -->
+					<!-- <h4>Latest Products</h4>
 					<ul class="thumbnails">
 						<li class="span3">
 							<div class="thumbnail">
@@ -453,8 +448,8 @@ if (database == null){
 								</div>
 							</div>
 						</li>
-					</ul>
-
+					</ul> -->
+			<h1>Hey! This is empty for now, so check out our categories! :D</h1>
 				</div>
 			</div>
 		</div>
