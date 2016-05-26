@@ -221,7 +221,7 @@ public class Database {
 			gen[i] = rs.getInt("genre_id");
 			i++;
 		}
-		
+		//Test
 		sql = "SELECT * FROM genre WHERE genre_id = ?";
 
 		for (i = 1; i < gen.length; i++) { // Additional parameters depending on no. of genre
