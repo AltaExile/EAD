@@ -55,7 +55,7 @@
 						<button type="submit" id="submitButton" class="btn btn-primary">Search!</button>
 					</form>
 					
-						<div style=>
+						<div>
 						<a href="InsertGame.jsp"><span class="btn" style="margin-left:0px;margin-top:20px;margin-bottom:0px;margin-right:0px
 						<% if (!database.getID().equals("admin")){out.println(";display: none");}%>">Insert game</span></a> <br>
 						<a href="genres.jsp"><span class="btn" style="margin-left:0px;margin-top:20px;margin-bottom:0px;margin-right:0px

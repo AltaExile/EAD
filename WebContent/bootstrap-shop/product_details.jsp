@@ -100,6 +100,7 @@ database.setGenre(pID);
 
 				  <div class="control-group" style="float:right;">
 					<label class="control-label"><span>$<%=database.getpPrice() %></span></label>
+					<a href=""><button class="button">Add item to cart!</button></a>
 					<%if ((database.getID()).equals("admin")){
 					
 					%>

@@ -128,7 +128,7 @@ margin-top:100px;
 			
 			<label class="control-label" for="textarea">Comment (300 Characters max)</label>
             <div class="controls">
-            <textarea class="input-xxlarge" id="textarea1" rows="3" name="Comment"></textarea>
+            <textarea class="input-xxlarge" id="textarea1" rows="3" name="comment"></textarea>
 			</div>
 			
 			<input type="hidden" name="pID" value="<%=pID%>">
