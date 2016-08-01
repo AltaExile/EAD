@@ -74,6 +74,7 @@ GenreDB genreDB = new GenreDB();
 						</label>
 						<button type="submit" id="submitButton" class="btn btn-primary">Search!</button>
 					</form>
+<<<<<<< HEAD
 					<div class="pull-right" style="padding-top:10px;">
 					<a href="product_summary.jsp"><button class="btn btn-large" >Cart</button></a>
 					</div>
@@ -101,6 +102,19 @@ GenreDB genreDB = new GenreDB();
 										</ul>
 						<% }%>
 					<ul id="topMenu" class="nav pull-right" style="position:relative;float:left;padding:0px;">
+=======
+					
+						<div>
+						<a href="InsertGame.jsp"><span class="btn" style="margin-left:0px;margin-top:20px;margin-bottom:0px;margin-right:0px
+						<% if (!database.getID().equals("admin")){out.println(";display: none");}%>">Insert game</span></a> <br>
+						<a href="genres.jsp"><span class="btn" style="margin-left:0px;margin-top:20px;margin-bottom:0px;margin-right:0px
+						<% if (!database.getID().equals("admin")){out.println(";display: none");}%>">Genres</span></a>
+						<a href="imageUpload.jsp"><span class="btn" style="margin-left:0px;margin-top:20px;margin-bottom:0px;margin-right:0px
+						<% if (!database.getID().equals("admin")){out.println(";display: none");}%>">Images?</span></a>
+						
+										
+					<ul id="topMenu" class="nav pull-right" style="position:relative;float:top;">
+>>>>>>> d5c9eec204b34b3edbe493e913ee86f403ac66a3
 						<li class=""><a href="#login" role="button"
 							data-toggle="modal" style="padding-top:10px;<% if(!name.equals("You are not logged in.")){out.println(";display: none");}%>">
 							<span class="btn btn-large btn-success">Login</span></a> 
