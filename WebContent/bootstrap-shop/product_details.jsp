@@ -93,11 +93,6 @@ Game game = GameDB.getGameDetails(pID);
 
 				  <div class="control-group" style="float:right;">
 					<label class="control-label"><span>$<%=database.getpPrice() %></span></label>
-<<<<<<< HEAD
-=======
-					<a href=""><button class="button">Add item to cart!</button></a>
-					<%if ((database.getID()).equals("admin")){
->>>>>>> d5c9eec204b34b3edbe493e913ee86f403ac66a3
 					
 					<form action="${pageContext.request.contextPath}/AddToCart" method="post">
 					<input type="hidden" name="pID" value="<%=pID %>">
