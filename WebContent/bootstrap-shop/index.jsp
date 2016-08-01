@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@page import="javax.servlet.*,conn.Database" %> 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <title>Bootshop online Shopping cart</title>
+<%@include file="relStyle.jsp" %>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -57,6 +60,8 @@ if (database == null){
 	database = new Database(username,password);
 }
 %>
+<%@page import="servlet.*" %>
+<%@page import="utility.*" %>
 </script>
 </head>
 <body>
@@ -69,31 +74,31 @@ if (database == null){
 				<div class="item active">
 					<div class="container">
 						<a href="products.jsp"><img style="max-width:400px;"
-							src="images/1.png" alt="special offers" /></a>
+							src="${pageContext.request.contextPath}/bootstrap-shop/images/1.png" alt="special offers" /></a>
 					</div>
 				</div>
 				<div class="item">
 					<div class="container">
 						<a href="products.jsp"><img style="max-width:400px;"
-							src="images/2.png" alt="" /></a>
+							src="${pageContext.request.contextPath}/bootstrap-shop/images/2.png" alt="" /></a>
 					</div>
 				</div>
 				<div class="item">
 					<div class="container">
 						<a href="products.jsp"><img style="max-width:400px;"
-							src="images/3.png" alt="" /></a>
+							src="${pageContext.request.contextPath}/bootstrap-shop/images/3.png" alt="" /></a>
 					</div>
 				</div>
 				<div class="item">
 					<div class="container">
 						<a href="products.jsp"><img style="max-width:400px;"
-							src="images/4.png" alt="" /></a>
+							src="${pageContext.request.contextPath}/bootstrap-shop/images/4.png" alt="" /></a>
 					</div>
 				</div>
 				<div class="item">
 					<div class="container">
 						<a href="products.jsp"><img style="max-width:400px;"
-							src="images/5.png" alt="" /></a>
+							src="${pageContext.request.contextPath}/bootstrap-shop/images/5.png" alt="" /></a>
 					</div>
 				</div>
 				
@@ -123,7 +128,7 @@ if (database == null){
 											<li class="span3">
 												<div class="thumbnail">
 													<i class="tag"></i> <a href="product_details.jsp"><img
-														src="themes/images/products/b1.jpg" alt=""></a>
+														src="${pageContext.request.contextPath}/images/products/b1.jpg" alt=""></a>
 													<div class="caption">
 														<h5>Product name</h5>
 														<h4>
@@ -136,7 +141,7 @@ if (database == null){
 											<li class="span3">
 												<div class="thumbnail">
 													<i class="tag"></i> <a href="product_details.jsp"><img
-														src="themes/images/products/b2.jpg" alt=""></a>
+														src="${pageContext.request.contextPath}/images/products/b2.jpg" alt=""></a>
 													<div class="caption">
 														<h5>Product name</h5>
 														<h4>
@@ -149,7 +154,7 @@ if (database == null){
 											<li class="span3">
 												<div class="thumbnail">
 													<i class="tag"></i> <a href="product_details.jsp"><img
-														src="themes/images/products/b3.jpg" alt=""></a>
+														src="${pageContext.request.contextPath}/images/products/b3.jpg" alt=""></a>
 													<div class="caption">
 														<h5>Product name</h5>
 														<h4>
@@ -162,7 +167,7 @@ if (database == null){
 											<li class="span3">
 												<div class="thumbnail">
 													<i class="tag"></i> <a href="product_details.jsp"><img
-														src="themes/images/products/b4.jpg" alt=""></a>
+														src="${pageContext.request.contextPath}/images/products/b4.jpg" alt=""></a>
 													<div class="caption">
 														<h5>Product name</h5>
 														<h4>
@@ -179,7 +184,7 @@ if (database == null){
 											<li class="span3">
 												<div class="thumbnail">
 													<i class="tag"></i> <a href="product_details.jsp"><img
-														src="themes/images/products/5.jpg" alt=""></a>
+														src="${pageContext.request.contextPath}/images/products/5.jpg" alt=""></a>
 													<div class="caption">
 														<h5>Product name</h5>
 														<h4>
@@ -192,7 +197,7 @@ if (database == null){
 											<li class="span3">
 												<div class="thumbnail">
 													<i class="tag"></i> <a href="product_details.jsp"><img
-														src="themes/images/products/6.jpg" alt=""></a>
+														src="${pageContext.request.contextPath}/images/products/6.jpg" alt=""></a>
 													<div class="caption">
 														<h5>Product name</h5>
 														<h4>
@@ -205,7 +210,7 @@ if (database == null){
 											<li class="span3">
 												<div class="thumbnail">
 													<a href="product_details.jsp"><img
-														src="themes/images/products/7.jpg" alt=""></a>
+														src="${pageContext.request.contextPath}/images/products/7.jpg" alt=""></a>
 													<div class="caption">
 														<h5>Product name</h5>
 														<h4>
@@ -218,63 +223,7 @@ if (database == null){
 											<li class="span3">
 												<div class="thumbnail">
 													<a href="product_details.jsp"><img
-														src="themes/images/products/8.jpg" alt=""></a>
-													<div class="caption">
-														<h5>Product name</h5>
-														<h4>
-															<a class="btn" href="product_details.jsp">VIEW</a> <span
-																class="pull-right">$222.00</span>
-														</h4>
-													</div>
-												</div>
-											</li>
-										</ul>
-									</div>
-									<div class="item">
-										<ul class="thumbnails">
-											<li class="span3">
-												<div class="thumbnail">
-													<a href="product_details.jsp"><img
-														src="themes/images/products/9.jpg" alt=""></a>
-													<div class="caption">
-														<h5>Product name</h5>
-														<h4>
-															<a class="btn" href="product_details.jsp">VIEW</a> <span
-																class="pull-right">$222.00</span>
-														</h4>
-													</div>
-												</div>
-											</li>
-											<li class="span3">
-												<div class="thumbnail">
-													<a href="product_details.jsp"><img
-														src="themes/images/products/10.jpg" alt=""></a>
-													<div class="caption">
-														<h5>Product name</h5>
-														<h4>
-															<a class="btn" href="product_details.jsp">VIEW</a> <span
-																class="pull-right">$222.00</span>
-														</h4>
-													</div>
-												</div>
-											</li>
-											<li class="span3">
-												<div class="thumbnail">
-													<a href="product_details.jsp"><img
-														src="themes/images/products/11.jpg" alt=""></a>
-													<div class="caption">
-														<h5>Product name</h5>
-														<h4>
-															<a class="btn" href="product_details.jsp">VIEW</a> <span
-																class="pull-right">$222.00</span>
-														</h4>
-													</div>
-												</div>
-											</li>
-											<li class="span3">
-												<div class="thumbnail">
-													<a href="product_details.jsp"><img
-														src="themes/images/products/1.jpg" alt=""></a>
+														src="${pageContext.request.contextPath}/themes/images/products/8.jpg" alt=""></a>
 													<div class="caption">
 														<h5>Product name</h5>
 														<h4>
@@ -291,7 +240,7 @@ if (database == null){
 											<li class="span3">
 												<div class="thumbnail">
 													<a href="product_details.jsp"><img
-														src="themes/images/products/2.jpg" alt=""></a>
+														src="${pageContext.request.contextPath}/images/products/9.jpg" alt=""></a>
 													<div class="caption">
 														<h5>Product name</h5>
 														<h4>
@@ -304,7 +253,7 @@ if (database == null){
 											<li class="span3">
 												<div class="thumbnail">
 													<a href="product_details.jsp"><img
-														src="themes/images/products/3.jpg" alt=""></a>
+														src="${pageContext.request.contextPath}/images/products/10.jpg" alt=""></a>
 													<div class="caption">
 														<h5>Product name</h5>
 														<h4>
@@ -317,7 +266,7 @@ if (database == null){
 											<li class="span3">
 												<div class="thumbnail">
 													<a href="product_details.jsp"><img
-														src="themes/images/products/4.jpg" alt=""></a>
+														src="${pageContext.request.contextPath}/images/products/11.jpg" alt=""></a>
 													<div class="caption">
 														<h5>Product name</h5>
 														<h4>
@@ -330,7 +279,63 @@ if (database == null){
 											<li class="span3">
 												<div class="thumbnail">
 													<a href="product_details.jsp"><img
-														src="themes/images/products/5.jpg" alt=""></a>
+														src="${pageContext.request.contextPath}/images/products/1.jpg" alt=""></a>
+													<div class="caption">
+														<h5>Product name</h5>
+														<h4>
+															<a class="btn" href="product_details.jsp">VIEW</a> <span
+																class="pull-right">$222.00</span>
+														</h4>
+													</div>
+												</div>
+											</li>
+										</ul>
+									</div>
+									<div class="item">
+										<ul class="thumbnails">
+											<li class="span3">
+												<div class="thumbnail">
+													<a href="product_details.jsp"><img
+														src="${pageContext.request.contextPath}/images/products/2.jpg" alt=""></a>
+													<div class="caption">
+														<h5>Product name</h5>
+														<h4>
+															<a class="btn" href="product_details.jsp">VIEW</a> <span
+																class="pull-right">$222.00</span>
+														</h4>
+													</div>
+												</div>
+											</li>
+											<li class="span3">
+												<div class="thumbnail">
+													<a href="product_details.jsp"><img
+														src="${pageContext.request.contextPath}/images/products/3.jpg" alt=""></a>
+													<div class="caption">
+														<h5>Product name</h5>
+														<h4>
+															<a class="btn" href="product_details.jsp">VIEW</a> <span
+																class="pull-right">$222.00</span>
+														</h4>
+													</div>
+												</div>
+											</li>
+											<li class="span3">
+												<div class="thumbnail">
+													<a href="product_details.jsp"><img
+														src="${pageContext.request.contextPath}/images/products/4.jpg" alt=""></a>
+													<div class="caption">
+														<h5>Product name</h5>
+														<h4>
+															<a class="btn" href="product_details.jsp">VIEW</a> <span
+																class="pull-right">$222.00</span>
+														</h4>
+													</div>
+												</div>
+											</li>
+											<li class="span3">
+												<div class="thumbnail">
+													<a href="product_details.jsp"><img
+														src="${pageContext.request.contextPath}/images/products/5.jpg" alt=""></a>
 													<div class="caption">
 														<h5>Product name</h5>
 														<h4>
@@ -354,7 +359,7 @@ if (database == null){
 						<li class="span3">
 							<div class="thumbnail">
 								<a href="product_details.jsp"><img
-									src="themes/images/products/6.jpg" alt="" /></a>
+									src="${pageContext.request.contextPath}/images/products/6.jpg" alt="" /></a>
 								<div class="caption">
 									<h5>Product name</h5>
 									<p>Lorem Ipsum is simply dummy text.</p>
@@ -371,7 +376,7 @@ if (database == null){
 						<li class="span3">
 							<div class="thumbnail">
 								<a href="product_details.jsp"><img
-									src="themes/images/products/7.jpg" alt="" /></a>
+									src="${pageContext.request.contextPath}/themes/images/products/7.jpg" alt="" /></a>
 								<div class="caption">
 									<h5>Product name</h5>
 									<p>Lorem Ipsum is simply dummy text.</p>
@@ -387,7 +392,7 @@ if (database == null){
 						<li class="span3">
 							<div class="thumbnail">
 								<a href="product_details.jsp"><img
-									src="themes/images/products/8.jpg" alt="" /></a>
+									src="${pageContext.request.contextPath}/themes/images/products/8.jpg" alt="" /></a>
 								<div class="caption">
 									<h5>Product name</h5>
 									<p>Lorem Ipsum is simply dummy text.</p>
@@ -403,7 +408,7 @@ if (database == null){
 						<li class="span3">
 							<div class="thumbnail">
 								<a href="product_details.jsp"><img
-									src="themes/images/products/9.jpg" alt="" /></a>
+									src="${pageContext.request.contextPath}/themes/images/products/9.jpg" alt="" /></a>
 								<div class="caption">
 									<h5>Product name</h5>
 									<p>Lorem Ipsum is simply dummy text.</p>
@@ -419,7 +424,7 @@ if (database == null){
 						<li class="span3">
 							<div class="thumbnail">
 								<a href="product_details.jsp"><img
-									src="themes/images/products/10.jpg" alt="" /></a>
+									src="${pageContext.request.contextPath}/themes/images/products/10.jpg" alt="" /></a>
 								<div class="caption">
 									<h5>Product name</h5>
 									<p>Lorem Ipsum is simply dummy text.</p>
@@ -435,7 +440,7 @@ if (database == null){
 						<li class="span3">
 							<div class="thumbnail">
 								<a href="product_details.jsp"><img
-									src="themes/images/products/11.jpg" alt="" /></a>
+									src="${pageContext.request.contextPath}/themes/images/products/11.jpg" alt="" /></a>
 								<div class="caption">
 									<h5>Product name</h5>
 									<p>Lorem Ipsum is simply dummy text.</p>
@@ -468,7 +473,7 @@ if (database == null){
 
 	<!-- Themes switcher section ============================================================================================= -->
 	<div id="secectionBox">
-		<link rel="stylesheet" href="themes/switch/themeswitch.css"
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap-shop/themes/switch/themeswitch.css"
 			type="text/css" media="screen" />
 		<script src="themes/switch/theamswitcher.js" type="text/javascript"
 			charset="utf-8"></script>

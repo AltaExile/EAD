@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@page import="javax.servlet.*,conn.Database" %> 
+<%@page import="javax.servlet.*,conn.Database,object.Game,utility.GameDB" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <title>Bootshop online Shopping cart</title>
+<%@include file="relStyle.jsp" %>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -31,17 +32,6 @@
 <!-- Google-code-prettify -->
 <link href="themes/js/google-code-prettify/prettify.css"
 	rel="stylesheet" />
-<!-- fav and touch icons -->
-<link rel="shortcut icon" href="themes/images/ico/favicon.ico">
-<link rel="apple-touch-icon-precomposed" sizes="144x144"
-	href="themes/images/ico/apple-touch-icon-144-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="114x114"
-	href="themes/images/ico/apple-touch-icon-114-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="72x72"
-	href="themes/images/ico/apple-touch-icon-72-precomposed.png">
-<link rel="apple-touch-icon-precomposed"
-	href="themes/images/ico/apple-touch-icon-57-precomposed.png">
-<style type="text/css" id="enject"></style>
 <style>
 #payment div{
 margin-top:100px;
@@ -67,6 +57,9 @@ if(request.getParameter("pID") != null){
 }
 database.pidSearch(pID);
 database.setGenre(pID);
+GameDB GameDB = new GameDB();
+Game game = GameDB.getGameDetails(pID);
+
 %>
 
 
@@ -100,8 +93,19 @@ database.setGenre(pID);
 
 				  <div class="control-group" style="float:right;">
 					<label class="control-label"><span>$<%=database.getpPrice() %></span></label>
-					<%if ((database.getID()).equals("admin")){
 					
+					<form action="${pageContext.request.contextPath}/AddToCart" method="post">
+					<input type="hidden" name="pID" value="<%=pID %>">
+					<select name="quantity" class="srchTxt" style="width:100px;">
+					<%for(int i = 1; i <= game.getStock(); i++){%>
+						<option value=<%=i %>><%=i %></option>
+					<%} %>
+					</select>
+					<button class="btn btn-large btn-primary" type="submit">Add item to cart!</button>
+					</form>
+					
+					<%if ((database.getID()).equals("admin")){
+					//These buttons only show up if you're an admin.
 					%>
 					<form action="deleteGame.jsp" method="post">
 					<input type="hidden" name="pID" value="<%=pID %>">

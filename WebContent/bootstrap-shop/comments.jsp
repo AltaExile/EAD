@@ -6,6 +6,7 @@
 <head>
 <meta charset="utf-8">
 <title>Bootshop online Shopping cart</title>
+<%@include file="relStyle.jsp" %>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -128,7 +129,7 @@ margin-top:100px;
 			
 			<label class="control-label" for="textarea">Comment (300 Characters max)</label>
             <div class="controls">
-            <textarea class="input-xxlarge" id="textarea1" rows="3" name="Comment"></textarea>
+            <textarea class="input-xxlarge" id="textarea1" rows="3" name="comment"></textarea>
 			</div>
 			
 			<input type="hidden" name="pID" value="<%=pID%>">

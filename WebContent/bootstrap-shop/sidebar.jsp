@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import="utility.GenreDB" %>
 <%@page import="javax.servlet.*" %> 
 <%@page import="conn.Database" %>
 <%@page import="java.sql.*" %>
@@ -8,6 +9,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+
+<%
+//GenreDB genreDB = new GenreDB();
+%>
 </head>
 <body>
 <div id="sidebar" class="span3">
@@ -19,7 +24,7 @@
 					<ul id="sideManu" class="nav nav-tabs nav-stacked">
 						<li class="subMenu open"><a>Genre</a>
 							<ul>
-							<%ResultSet genreRS = database.selectGenre();
+							<%genreRS = genreDB.selectGenre();
 							while(genreRS.next()){
 								%>
 								<li><a  href="products.jsp?genre=<%=genreRS.getString("genre_id")%>"><i
@@ -28,7 +33,7 @@
 							</ul></li>
 					<br/> 
 					<div class="thumbnail" >
-						<img src="themes/images/payment_methods.png"
+						<img src="${pageContext.request.contextPath}/bootstrap-shop/themes/images/payment_methods.png"
 							title="Bootshop Payment Methods" alt="Payments Methods">
 						<div class="caption">
 							<h5>Payment Methods</h5>

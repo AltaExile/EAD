@@ -32,7 +32,7 @@ public class Database {
 			PreparedStatement pstmt;
 
 			// End of connection preparation
-			String sql = "SELECT * FROM login where username = ?";
+			String sql = "SELECT * FROM user_details where email = ?";
 			pstmt = conn.prepareStatement(sql);// prepared statement
 			pstmt.setString(1, username);
 			ResultSet rs = pstmt.executeQuery();// Assigning to resultset to
